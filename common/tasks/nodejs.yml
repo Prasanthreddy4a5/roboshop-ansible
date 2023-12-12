@@ -1,0 +1,24 @@
+- name: INstall NodeJS Repos
+  ansible.builtin.shell: dnf module disable nodejs -y
+- name: Enable Nodejs Repos
+  ansible.builtin.shell: dnf module enable nodejs:18 -y
+
+- name: Install NodeJS
+  ansible.builtin.dnf:
+    name: nodejs
+    state: installed
+
+- name: App Pre-requisites
+  ansible.builtin.import_tasks: app-preq.yml
+
+- name: Download NodeJS Dependencies
+  ansible.builtin.shell: npm install
+  args:
+    chdir: /app
+
+- name: Schema Setup
+  ansible.builtin.import_tasks: mongo-schema.yml
+  when: schema is defined
+
+- name: SystemD Setup
+  ansible.builtin.import_tasks: systemd-setup.yml
