@@ -6,7 +6,7 @@
 - name: Install MongoDB Client
   ansible.builtin.dnf:
     name: mongodb-org-shell
-    state: installed
+    state: present
 
 - name: Load Schema
   ansible.builtin.shell: mongo --host mongodb-dev.prashdevops.online </app/schema/{{component}}.js
