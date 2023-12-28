@@ -6,7 +6,7 @@
 - name: Install MongoDB
   ansible.builtin.dnf:
     name: mongodb-org
-    state: installed
+    state: present
 
 - name: Update Listen Address in MongoDB Configuration
   ansible.builtin.replace:
