@@ -1,12 +1,13 @@
 - name: INstall NodeJS Repos
   ansible.builtin.shell: dnf module disable nodejs -y
+  
 - name: Enable Nodejs Repos
   ansible.builtin.shell: dnf module enable nodejs:18 -y
 
 - name: Install NodeJS
   ansible.builtin.dnf:
     name: nodejs
-    state: installed
+    state: present
 
 - name: App Pre-requisites
   ansible.builtin.import_tasks: app-preq.yml
