@@ -1,3 +1,6 @@
+- name: Set Hostname
+  ansible.builtin.shell: set-hostname frontend
+
 - name: Install Nginx
   ansible.builtin.dnf:
     name: nginx
@@ -25,7 +28,7 @@
     remote_src: yes
 
 - name: Restart Nginx
-  ansible.builtin.service:
+  ansible.builtin.systemd:
     name: nginx
-    state: restarted
+    state: started
     enabled: yes
