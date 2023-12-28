@@ -1,7 +1,7 @@
 - name: Install Redis Repo
   ansible.builtin.dnf:
     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-    state: installed
+    state: present
     disable_gpg_check: true
 
 - name: Enable Redis Module
@@ -10,7 +10,7 @@
 - name: INstall Redis
   ansible.builtin.dnf:
     name: redis
-    state: installed
+    state: present
 
 - name: Update Listen address /etc/redis.conf
   ansible.builtin.replace:
