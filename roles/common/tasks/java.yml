@@ -1,7 +1,7 @@
 - name: Install Maven
   ansible.builtin.dnf:
     name: maven
-    state: installed
+    state: present
 
 - name: App Pre-requisites
   ansible.builtin.import_tasks: app-preq.yml
