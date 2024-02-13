@@ -1,5 +1,8 @@
+---
 - name: Install Node Exporter
   hosts: all
   become: true
-    - tasks:
+
+  tasks:
+    - name: Install Node Exporter
       ansible.builtin.shell: labauto prometheus-node-exporter
