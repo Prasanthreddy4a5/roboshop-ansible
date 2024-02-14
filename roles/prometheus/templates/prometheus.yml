@@ -36,7 +36,7 @@ scrape_configs:
       - source_labels: [__meta_ec2_instance_state]
         target_label: instance_state
   # relabel_configs for getting the info of the above parameters(name,env,instance_state) in prometheus logs output
-  - job_name: 'nginx'
+  - job_name: 'EC2'
     ec2_sd_configs:
       - region: us-east-1
         port: 9113
