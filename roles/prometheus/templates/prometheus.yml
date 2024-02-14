@@ -46,11 +46,7 @@ scrape_configs:
     relabel_configs:
       - source_labels: [__meta_ec2_tag_Name]
         target_label: name
-      - source_labels: [__meta_ec2_ami]
-        target_label: ami
       - source_labels: [__meta_ec2_instance_type]
         target_label: instance_type
       - source_labels: [__meta_ec2_instance_state]
         target_label: instance_state
-      - source_labels: [ __meta_ec2_public_ip]
-        target_label: public_ip
