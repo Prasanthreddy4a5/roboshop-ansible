@@ -19,10 +19,10 @@ rule_files:
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:
-  - job_name: 'ec2'
+  - job_name: 'nginx'
     ec2_sd_configs:
       - region: us-east-1
-        port: 9100
+        port: 9133      #port no of nginx exporter (you can use port no 9100 for normal Prometheus node exporter)
         filters:
           - name: "tag:Monitor"
             values: [ "yes" ]

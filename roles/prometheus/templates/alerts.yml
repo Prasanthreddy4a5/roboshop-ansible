@@ -8,3 +8,12 @@ groups:
           severity: critical
         annotations:
           summary: Instance Down
+
+      - alert: CPUUsageHigh
+        expr: sd
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: CPU Usage High
+          description: {{ $labels.instance }}
