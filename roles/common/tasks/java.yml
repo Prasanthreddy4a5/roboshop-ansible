@@ -1,7 +1,12 @@
-- name: Install Maven
+#- name: Install Maven
+#  ansible.builtin.dnf:
+#    name: maven
+#    state: present
+- name: Install Java
   ansible.builtin.dnf:
-    name: maven
-    state: present
+    name: java-17-openjdk.x86_64
+    state: installed
+
 
 - name: App Pre-requisites
   ansible.builtin.import_tasks: app-preq.yml
